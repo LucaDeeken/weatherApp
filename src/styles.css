@@ -64,11 +64,93 @@ form {
 #dataArea {
     grid-column: 2/3;
     grid-row: 3/4;
-    width: 1100px;
+    width: 800px;
     opacity: 10;
-    height: 700px;
+    height: 800px;
     border-radius: 50px;
-    border: 2px solid black;
     justify-self: center;
     margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    gap: 10px;
+}
+
+#bigContainerOne {
+    background-color: white;
+    height: 380px;
+    width: 380px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+#bigContainerTwo {
+    height: 380px;
+    width: 380px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#containerInTwoOne {
+    grid-row: 1/2;
+    background-color: white;
+    height: 180px;
+    width: 380px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+#containerInTwoTwo {
+    grid-row: 2/3;
+    height: 185px;
+    width: 380px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    align-self: self-end;
+
+}
+
+#bigContainerThree {
+    height: 380px;
+    width: 380px;
+    border-radius: 20px;
+    display: grid;
+}
+
+#containerInThreeOne {
+    height: 182px;
+    width: 380px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+
+}
+
+
+#containerInThreeTwo {
+    height: 182px;
+    width: 380px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    align-self: self-end;
+}
+
+#bigContainerFour {
+    height: 380px;
+    width: 380px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+}
+
+#containerFourOne, #containerFourTwo, #containerFourThree, #containerFourFour {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.3);
 }
