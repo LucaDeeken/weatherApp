@@ -1,16 +1,14 @@
-import { state } from './index.js';
+import { state } from "./index.js";
 //fetch data and get weatherData
 
 const searchBtn = document.getElementById("searchBtn");
 
-
 export async function getWeather(searchValue) {
-  
-  searchBtn.textContent="Loading...";
-    try {
+  searchBtn.textContent = "Loading...";
+  try {
     let response = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchValue}?key=X5FTEN575UKEZGURN6FY3ZX82`,
-      { mode: "cors" }
+      { mode: "cors" },
     );
     let json = await response.json();
     weatherLibrary.getIcon(json);
@@ -29,19 +27,17 @@ export async function getWeather(searchValue) {
   } catch (error) {
     alert("Something went wrong!", error);
   } finally {
-    searchBtn.textContent="Search";
-
+    searchBtn.textContent = "Search";
   }
 }
 
 //library for wheatherData
 export const weatherLibrary = {
-
   getTemp(json) {
     const temperature = json.days[0].temp;
     const bigContainerOne = document.getElementById("bigContainerOne");
     const temperatureContainer = document.createElement("div");
-    temperatureContainer.id="temperatures";
+    temperatureContainer.id = "temperatures";
     temperatureContainer.textContent = temperature + "F°";
     bigContainerOne.appendChild(temperatureContainer);
   },
@@ -50,15 +46,15 @@ export const weatherLibrary = {
     const bigContainerTwoOne = document.getElementById("containerInTwoOne");
     const descriptionContainer = document.createElement("div");
     descriptionContainer.textContent = description;
-    descriptionContainer.id= "description";
+    descriptionContainer.id = "description";
     bigContainerTwoOne.appendChild(descriptionContainer);
   },
   getfeelsLike(json) {
     const feelsLikeTemperature = json.days[0].feelslike;
     const bigContainerTwoTwo = document.getElementById("containerInTwoTwo");
     const feelsContainer = document.createElement("div");
-    feelsContainer.innerHTML = "RealFeel: </br>" + feelsLikeTemperature +"°F";
-    feelsContainer.id= "feelsLike";
+    feelsContainer.innerHTML = "RealFeel: </br>" + feelsLikeTemperature + "°F";
+    feelsContainer.id = "feelsLike";
     bigContainerTwoTwo.appendChild(feelsContainer);
   },
   getSunRise(json) {
@@ -66,7 +62,7 @@ export const weatherLibrary = {
     const bigContainerThreeOne = document.getElementById("containerInThreeOne");
     const sunriseContainer = document.createElement("div");
     sunriseContainer.innerHTML = "Sunrise at </br>" + sunRise;
-    sunriseContainer.id= "sunRise";
+    sunriseContainer.id = "sunRise";
     bigContainerThreeOne.appendChild(sunriseContainer);
   },
   getSunSet(json) {
@@ -74,7 +70,7 @@ export const weatherLibrary = {
     const bigContainerThreeTwo = document.getElementById("containerInThreeTwo");
     const sunsetContainer = document.createElement("div");
     sunsetContainer.innerHTML = "Sunset at </br>" + sunSet;
-    sunsetContainer.id= "sunSet";
+    sunsetContainer.id = "sunSet";
     bigContainerThreeTwo.appendChild(sunsetContainer);
   },
   getWindSpeed(json) {
@@ -82,7 +78,7 @@ export const weatherLibrary = {
     const bigContainerFourOne = document.getElementById("containerFourOne");
     const windspeedContainer = document.createElement("div");
     windspeedContainer.innerHTML = "Windspeed:</br>" + windSpeed;
-    windspeedContainer.id= "windSpeed";
+    windspeedContainer.id = "windSpeed";
     bigContainerFourOne.appendChild(windspeedContainer);
   },
   getUV(json) {
@@ -90,7 +86,7 @@ export const weatherLibrary = {
     const bigContainerFourTwo = document.getElementById("containerFourTwo");
     const uvContainer = document.createElement("div");
     uvContainer.innerHTML = "UV-Index:</br>" + uvIndex;
-    uvContainer.id= "uv";
+    uvContainer.id = "uv";
     bigContainerFourTwo.appendChild(uvContainer);
   },
   getHumidity(json) {
@@ -98,7 +94,7 @@ export const weatherLibrary = {
     const bigContainerFourThree = document.getElementById("containerFourThree");
     const humidityContainer = document.createElement("div");
     humidityContainer.innerHTML = "Humidity:</br>" + humidity;
-    humidityContainer.id= "humidity";
+    humidityContainer.id = "humidity";
     bigContainerFourThree.appendChild(humidityContainer);
   },
   getCloudover(json) {
@@ -106,15 +102,15 @@ export const weatherLibrary = {
     const bigContainerFourFour = document.getElementById("containerFourFour");
     const cloudoverContainer = document.createElement("div");
     cloudoverContainer.innerHTML = "Cloudover:</br>" + cloudover;
-    cloudoverContainer.id= "cloudover";
+    cloudoverContainer.id = "cloudover";
     bigContainerFourFour.appendChild(cloudoverContainer);
   },
   getIcon(json) {
     const icon = json.days[0].icon;
     const bigContainerOne = document.getElementById("bigContainerOne");
     const img = document.createElement("img");
-    img.id="weatherIcon";
+    img.id = "weatherIcon";
     bigContainerOne.appendChild(img);
     img.src = `https://raw.githubusercontent.com/visualcrossing/WeatherIcons/58c79610addf3d4d91471abbb95b05e96fb43019/SVG/1st%20Set%20-%20Color/${icon}.svg`;
-  }
+  },
 };

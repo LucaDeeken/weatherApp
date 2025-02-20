@@ -39,7 +39,7 @@ function fahrenheitToCelsius() {
   fahrenheit = Number(fahrenheit);
   fahrenheit = (((fahrenheit - 32) * 5) / 9).toFixed(1);
   temperatureString.textContent = fahrenheit + "°C";
-  
+
   const feelsLikeString = document.getElementById("feelsLike");
   let feelsLike = feelsLikeString.textContent.trim();
   console.log(feelsLike);
