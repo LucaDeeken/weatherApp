@@ -4,7 +4,7 @@ body {
   display: grid;
   grid-template-rows: 0.2fr 0.3fr 1fr 7fr 1fr;
   grid-template-columns: 1fr 2fr 1fr;
-  background: linear-gradient(to bottom, #1e3c72, #2a5298, #3b82f6);
+  background: linear-gradient(to top, #dbeafe, #93c5fd, #60a5fa, #3b82f6);
   font-family: "Inter", serif;
 }
 
