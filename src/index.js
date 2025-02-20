@@ -31,6 +31,7 @@ function deleteContent() {
   }
 }
 
+//function for turning fahrenheit to celsius
 function fahrenheitToCelsius() {
   const temperatureString = document.getElementById("temperatures");
   let fahrenheit = temperatureString.textContent.trim();
@@ -38,18 +39,19 @@ function fahrenheitToCelsius() {
   fahrenheit = Number(fahrenheit);
   fahrenheit = (((fahrenheit - 32) * 5) / 9).toFixed(1);
   temperatureString.textContent = fahrenheit + "°C";
-
+  
   const feelsLikeString = document.getElementById("feelsLike");
   let feelsLike = feelsLikeString.textContent.trim();
   console.log(feelsLike);
   feelsLike = feelsLike.replace(/[^\d.-]/g, "");
   feelsLike = Number(feelsLike);
   feelsLike = (((feelsLike - 32) * 5) / 9).toFixed(1);
-  feelsLikeString.innerHTML = "RealFeel: </br>" +feelsLike + "°C";
+  feelsLikeString.innerHTML = "RealFeel: </br>" + feelsLike + "°C";
 
   state.graduator = "celsius";
 }
 
+//function for turning celsius to fahrenheit
 function celsiusToFahrenheit() {
   const temperatureString = document.getElementById("temperatures");
   let fahrenheit = temperatureString.textContent.trim();
@@ -63,11 +65,12 @@ function celsiusToFahrenheit() {
   feelsLike = feelsLike.replace(/[^\d.-]/g, "");
   feelsLike = Number(feelsLike);
   feelsLike = ((feelsLike * 9) / 5 + 32).toFixed(1);
-  feelsLikeString.innerHTML = "RealFeel: </br>" +feelsLike + "°F";
+  feelsLikeString.innerHTML = "RealFeel: </br>" + feelsLike + "°F";
 
   state.graduator = "fahrenheit";
 }
 
+//buttons for changeEvents
 celsius.addEventListener("click", () => {
   if (state.graduator === "fahrenheit") {
     fahrenheitToCelsius();
@@ -75,7 +78,7 @@ celsius.addEventListener("click", () => {
 });
 
 fahrenheitBtn.addEventListener("click", () => {
-    if (state.graduator === "celsius") {
+  if (state.graduator === "celsius") {
     celsiusToFahrenheit();
   }
 });
