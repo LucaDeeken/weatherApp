@@ -2,7 +2,7 @@ body {
   height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-rows: 0.7fr 1fr 7fr 1fr;
+  grid-template-rows: 0.2fr 0.3fr 1fr 7fr 1fr;
   grid-template-columns: 1fr 2fr 1fr;
   background: linear-gradient(to bottom, #1e3c72, #2a5298, #3b82f6);
   font-family: "Inter", serif;
@@ -11,15 +11,50 @@ body {
 #searchArea {
   justify-self: center;
   display: grid;
-  grid-row: 2/3;
+  grid-row: 1/2;
   grid-column: 2/3;
   border-radius: 20px;
   width: 700px;
   height: 70px;
 }
 
+#toggle {
+    display: grid;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    grid-template-columns: 1fr 1fr;
+}
+
+#fahrenheit, #celsius {
+    margin-top: 20px;
+    width: 80px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: white;
+    place-items: center;
+    display: grid;
+    font-weight: 700;
+    font-size: 22px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+}
+#fahrenheit {
+    justify-self: end;
+    margin-right: 10px;
+}
+#celsius {
+    justify-self: start;
+    margin-left: 10px;
+}
+
+#fahrenheit:hover, #celsius:hover {
+
+background-color: black;
+color: white;
+cursor: pointer;
+}
+
 #dataArea {
-  grid-column: 2/3;
+  grid-column: 3/4;
 }
 
 p {
@@ -41,6 +76,7 @@ form {
   justify-self: center;
   border: 3px solid silver;
   margin-left: 60px;
+  font-size: 18px;
 }
 
 #searchBtn {
@@ -157,28 +193,29 @@ form {
     background-color: white;
     border-radius: 20px;
     box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.3);
+    display: grid;
 }
 
 #weatherIcon {
     grid-column: 1/2;
     grid-row: 1/2;
     padding: 40px;
-    height: 135px;
+    height: 120px;
 }
 
 #temperatures {
     grid-column: 1/3;
     grid-row: 2/3;
-    font-size: 70px;
-    font-weight: 500;
+    font-size: 60px;
+    font-weight: 700;
     justify-self: center;
-    margin-top: 40px;
+    margin-top: 60px;
     margin-left: 110px
 }
 
 #description {
     place-self: center;
-    font-size: 36px;
+    font-size: 25px;
     font-weight: 800;
     text-align: center;
 }
@@ -198,3 +235,17 @@ form {
     text-align: center;
     margin-top: 50px;
 }
+
+
+#uv, #humidity, #cloudover, #windSpeed {
+    place-self: center;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    transition: opacity 1s ease-in-out;
+}
+
+
+
+
+

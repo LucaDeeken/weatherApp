@@ -1,3 +1,6 @@
+import { state } from './index.js';
+
+//fetch data and get weatherData
 export async function getWeather(searchValue) {
   try {
     let response = await fetch(
@@ -5,33 +8,32 @@ export async function getWeather(searchValue) {
       { mode: "cors" }
     );
     let json = await response.json();
-    console.log(json);
     weatherLibrary.getIcon(json);
     weatherLibrary.getTemp(json);
     weatherLibrary.getDescription(json);
     weatherLibrary.getfeelsLike(json);
     weatherLibrary.getSunRise(json);
     weatherLibrary.getSunSet(json);
-
-
-    console.log(json);
+    weatherLibrary.getWindSpeed(json);
+    weatherLibrary.getUV(json);
+    weatherLibrary.getHumidity(json);
+    weatherLibrary.getCloudover(json);
+    state.content = true;
     return json;
   } catch (error) {
     alert("Something went wrong!");
   }
 }
 
+//library for wheatherData
 export const weatherLibrary = {
-  getCondition(json) {
-    const condition = json.days[0].conditions;
-    return condition;
-  },
+
   getTemp(json) {
     const temperature = json.days[0].temp;
     const bigContainerOne = document.getElementById("bigContainerOne");
     const temperatureContainer = document.createElement("div");
     temperatureContainer.id="temperatures";
-    temperatureContainer.textContent = temperature + "C°";
+    temperatureContainer.textContent = temperature + "F°";
     bigContainerOne.appendChild(temperatureContainer);
   },
   getDescription(json) {
@@ -46,7 +48,7 @@ export const weatherLibrary = {
     const feelsLikeTemperature = json.days[0].feelslike;
     const bigContainerTwoTwo = document.getElementById("containerInTwoTwo");
     const feelsContainer = document.createElement("div");
-    feelsContainer.innerHTML = "RealFeel: </br>" + feelsLikeTemperature +"C°";
+    feelsContainer.innerHTML = "RealFeel: </br>" + feelsLikeTemperature +"°F";
     feelsContainer.id= "feelsLike";
     bigContainerTwoTwo.appendChild(feelsContainer);
   },
@@ -68,11 +70,35 @@ export const weatherLibrary = {
   },
   getWindSpeed(json) {
     const windSpeed = json.days[0].windspeed;
-    return windSpeed;
+    const bigContainerFourOne = document.getElementById("containerFourOne");
+    const windspeedContainer = document.createElement("div");
+    windspeedContainer.innerHTML = "Windspeed:</br>" + windSpeed;
+    windspeedContainer.id= "windSpeed";
+    bigContainerFourOne.appendChild(windspeedContainer);
   },
   getUV(json) {
     const uvIndex = json.days[0].uvindex;
-    return uvIndex;
+    const bigContainerFourTwo = document.getElementById("containerFourTwo");
+    const uvContainer = document.createElement("div");
+    uvContainer.innerHTML = "UV-Index:</br>" + uvIndex;
+    uvContainer.id= "uv";
+    bigContainerFourTwo.appendChild(uvContainer);
+  },
+  getHumidity(json) {
+    const humidity = json.days[0].humidity;
+    const bigContainerFourThree = document.getElementById("containerFourThree");
+    const humidityContainer = document.createElement("div");
+    humidityContainer.innerHTML = "Humidity:</br>" + humidity;
+    humidityContainer.id= "humidity";
+    bigContainerFourThree.appendChild(humidityContainer);
+  },
+  getCloudover(json) {
+    const cloudover = json.days[0].cloudcover;
+    const bigContainerFourFour = document.getElementById("containerFourFour");
+    const cloudoverContainer = document.createElement("div");
+    cloudoverContainer.innerHTML = "Cloudover:</br>" + cloudover;
+    cloudoverContainer.id= "cloudover";
+    bigContainerFourFour.appendChild(cloudoverContainer);
   },
   getIcon(json) {
     const icon = json.days[0].icon;
