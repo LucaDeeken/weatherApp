@@ -1,8 +1,13 @@
 import { state } from './index.js';
-
 //fetch data and get weatherData
+
+const searchBtn = document.getElementById("searchBtn");
+
+
 export async function getWeather(searchValue) {
-  try {
+  
+  searchBtn.textContent="Loading...";
+    try {
     let response = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchValue}?key=X5FTEN575UKEZGURN6FY3ZX82`,
       { mode: "cors" }
@@ -19,9 +24,13 @@ export async function getWeather(searchValue) {
     weatherLibrary.getHumidity(json);
     weatherLibrary.getCloudover(json);
     state.content = true;
+    state.graduator = "fahrenheit";
     return json;
   } catch (error) {
-    alert("Something went wrong!");
+    alert("Something went wrong!", error);
+  } finally {
+    searchBtn.textContent="Search";
+
   }
 }
 
