@@ -3,8 +3,8 @@ import { getWeather } from "./getWeather.js";
 
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
-const celsius = document.getElementById("celsiusText");
-const fahrenheitBtn = document.getElementById("fahrenheitText");
+const celsius = document.getElementById("celsius");
+const fahrenheitBtn = document.getElementById("fahrenheit");
 
 //if content is already displayed, we set content on true, so it doesnt overwrite the first fetch
 export const state = {
